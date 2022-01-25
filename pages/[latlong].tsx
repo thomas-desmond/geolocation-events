@@ -4,7 +4,7 @@ import styles from '../styles/Home.module.css'
 export async function getStaticProps({ params }: any) {
     const latlong = params.latlong;
 
-    const data = await fetch(`https://app.ticketmaster.com/discovery/v2/events.json?size=10&apikey=${process.env.TICKETMASTER_API_KEY}&latlong=37.7749,-122.4194`)
+    const data = await fetch(`https://app.ticketmaster.com/discovery/v2/events.json?size=10&apikey=${process.env.TICKETMASTER_API_KEY}&latlong=${latlong}`)
     const eventDataAsJson = await data.json();
 
     return { props: { eventDataAsJson } }
